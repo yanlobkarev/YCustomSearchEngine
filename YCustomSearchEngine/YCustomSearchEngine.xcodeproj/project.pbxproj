@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CED4847E1607165200DB72EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED4847D1607165200DB72EF /* Foundation.framework */; };
+		CED484841607165200DB72EF /* YCustomSearchEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = CED484831607165200DB72EF /* YCustomSearchEngine.m */; };
+		CED48491160716BF00DB72EF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED48490160716BF00DB72EF /* SenTestingKit.framework */; };
+		CED48493160716C000DB72EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED48492160716BF00DB72EF /* UIKit.framework */; };
+		CED48494160716C000DB72EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED4847D1607165200DB72EF /* Foundation.framework */; };
+		CED4849A160716C000DB72EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CED48498160716C000DB72EF /* InfoPlist.strings */; };
+		CED4849D160716C000DB72EF /* YCustomSearchEngineTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CED4849C160716C000DB72EF /* YCustomSearchEngineTest.m */; };
+		CED484A1160716C000DB72F2 /* NSDictionary+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = CED484A1160716C000DB72F1 /* NSDictionary+Helpers.m */; };
+		CED484A1160716C000DB72F4 /* NSDictionary+Helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = CED484A1160716C000DB72F3 /* NSDictionary+Helpers.h */; };
+		CED484A1160716C000DB72F6 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = CED484A1160716C000DB72F5 /* Constants.h */; };
+		CED484A1160716C000DB72F8 /* SearchParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = CED484A1160716C000DB72F7 /* SearchParameters.h */; };
+		CED484B116073E8D00DB72EF /* libYCustomSearchEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CED4847A1607165200DB72EF /* libYCustomSearchEngine.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CED484AE160732E000DB72EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CED484711607165200DB72EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CED484791607165200DB72EF;
+			remoteInfo = YCustomSearchEngine;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CED4847A1607165200DB72EF /* libYCustomSearchEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libYCustomSearchEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED4847D1607165200DB72EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CED484811607165200DB72EF /* YCustomSearchEngine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YCustomSearchEngine-Prefix.pch"; sourceTree = "<group>"; };
+		CED484821607165200DB72EF /* YCustomSearchEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCustomSearchEngine.h; sourceTree = "<group>"; };
+		CED484831607165200DB72EF /* YCustomSearchEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCustomSearchEngine.m; sourceTree = "<group>"; };
+		CED4848F160716BF00DB72EF /* YCustomSearchEngineTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YCustomSearchEngineTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED48490160716BF00DB72EF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		CED48492160716BF00DB72EF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		CED48497160716C000DB72EF /* YCustomSearchEngineTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YCustomSearchEngineTest-Info.plist"; sourceTree = "<group>"; };
+		CED48499160716C000DB72EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CED4849B160716C000DB72EF /* YCustomSearchEngineTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCustomSearchEngineTest.h; sourceTree = "<group>"; };
+		CED4849C160716C000DB72EF /* YCustomSearchEngineTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCustomSearchEngineTest.m; sourceTree = "<group>"; };
+		CED4849E160716C000DB72EF /* YCustomSearchEngineTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YCustomSearchEngineTest-Prefix.pch"; sourceTree = "<group>"; };
+		CED484A1160716C000DB72F1 /* NSDictionary+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Helpers.m"; sourceTree = "<group>"; };
+		CED484A1160716C000DB72F3 /* NSDictionary+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Helpers.h"; sourceTree = "<group>"; };
+		CED484A1160716C000DB72F5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		CED484A1160716C000DB72F7 /* SearchParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchParameters.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CED484771607165200DB72EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED4847E1607165200DB72EF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED4848B160716BF00DB72EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED484B116073E8D00DB72EF /* libYCustomSearchEngine.a in Frameworks */,
+				CED48491160716BF00DB72EF /* SenTestingKit.framework in Frameworks */,
+				CED48493160716C000DB72EF /* UIKit.framework in Frameworks */,
+				CED48494160716C000DB72EF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CED4846F1607165200DB72EF = {
+			isa = PBXGroup;
+			children = (
+				CED4847F1607165200DB72EF /* YCustomSearchEngine */,
+				CED48495160716C000DB72EF /* YCustomSearchEngineTest */,
+				CED4847C1607165200DB72EF /* Frameworks */,
+				CED4847B1607165200DB72EF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CED4847B1607165200DB72EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CED4847A1607165200DB72EF /* libYCustomSearchEngine.a */,
+				CED4848F160716BF00DB72EF /* YCustomSearchEngineTest.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CED4847C1607165200DB72EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CED4847D1607165200DB72EF /* Foundation.framework */,
+				CED48490160716BF00DB72EF /* SenTestingKit.framework */,
+				CED48492160716BF00DB72EF /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CED4847F1607165200DB72EF /* YCustomSearchEngine */ = {
+			isa = PBXGroup;
+			children = (
+				CED484A1160716C000DB72F7 /* SearchParameters.h */,
+				CED484A1160716C000DB72F5 /* Constants.h */,
+				CED484821607165200DB72EF /* YCustomSearchEngine.h */,
+				CED484831607165200DB72EF /* YCustomSearchEngine.m */,
+				CED484801607165200DB72EF /* Supporting Files */,
+				CED484A1160716C000DB72F0 /* helpers */,
+			);
+			path = YCustomSearchEngine;
+			sourceTree = "<group>";
+		};
+		CED484801607165200DB72EF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CED484811607165200DB72EF /* YCustomSearchEngine-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CED48495160716C000DB72EF /* YCustomSearchEngineTest */ = {
+			isa = PBXGroup;
+			children = (
+				CED4849B160716C000DB72EF /* YCustomSearchEngineTest.h */,
+				CED4849C160716C000DB72EF /* YCustomSearchEngineTest.m */,
+				CED48496160716C000DB72EF /* Supporting Files */,
+			);
+			path = YCustomSearchEngineTest;
+			sourceTree = "<group>";
+		};
+		CED48496160716C000DB72EF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CED48497160716C000DB72EF /* YCustomSearchEngineTest-Info.plist */,
+				CED48498160716C000DB72EF /* InfoPlist.strings */,
+				CED4849E160716C000DB72EF /* YCustomSearchEngineTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CED484A1160716C000DB72F0 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CED484A1160716C000DB72F3 /* NSDictionary+Helpers.h */,
+				CED484A1160716C000DB72F1 /* NSDictionary+Helpers.m */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CED484781607165200DB72EF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED484A1160716C000DB72F4 /* NSDictionary+Helpers.h in Headers */,
+				CED484A1160716C000DB72F6 /* Constants.h in Headers */,
+				CED484A1160716C000DB72F8 /* SearchParameters.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CED484791607165200DB72EF /* YCustomSearchEngine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CED484871607165200DB72EF /* Build configuration list for PBXNativeTarget "YCustomSearchEngine" */;
+			buildPhases = (
+				CED484761607165200DB72EF /* Sources */,
+				CED484771607165200DB72EF /* Frameworks */,
+				CED484781607165200DB72EF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YCustomSearchEngine;
+			productName = YCustomSearchEngine;
+			productReference = CED4847A1607165200DB72EF /* libYCustomSearchEngine.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CED4848E160716BF00DB72EF /* YCustomSearchEngineTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CED4849F160716C000DB72EF /* Build configuration list for PBXNativeTarget "YCustomSearchEngineTest" */;
+			buildPhases = (
+				CED4848A160716BF00DB72EF /* Sources */,
+				CED4848B160716BF00DB72EF /* Frameworks */,
+				CED4848C160716BF00DB72EF /* Resources */,
+				CED4848D160716BF00DB72EF /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CED484AF160732E000DB72EF /* PBXTargetDependency */,
+			);
+			name = YCustomSearchEngineTest;
+			productName = YCustomSearchEngineTest;
+			productReference = CED4848F160716BF00DB72EF /* YCustomSearchEngineTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CED484711607165200DB72EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = CED484741607165200DB72EF /* Build configuration list for PBXProject "YCustomSearchEngine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CED4846F1607165200DB72EF;
+			productRefGroup = CED4847B1607165200DB72EF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CED484791607165200DB72EF /* YCustomSearchEngine */,
+				CED4848E160716BF00DB72EF /* YCustomSearchEngineTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CED4848C160716BF00DB72EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED4849A160716C000DB72EF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CED4848D160716BF00DB72EF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CED484761607165200DB72EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED484841607165200DB72EF /* YCustomSearchEngine.m in Sources */,
+				CED484A1160716C000DB72F2 /* NSDictionary+Helpers.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED4848A160716BF00DB72EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED4849D160716C000DB72EF /* YCustomSearchEngineTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CED484AF160732E000DB72EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CED484791607165200DB72EF /* YCustomSearchEngine */;
+			targetProxy = CED484AE160732E000DB72EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CED48498160716C000DB72EF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CED48499160716C000DB72EF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CED484851607165200DB72EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CED484861607165200DB72EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CED484881607165200DB72EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/YCustomSearchEngine.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YCustomSearchEngine/YCustomSearchEngine-Prefix.pch";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CED484891607165200DB72EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/YCustomSearchEngine.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YCustomSearchEngine/YCustomSearchEngine-Prefix.pch";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CED484A0160716C000DB72EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YCustomSearchEngineTest/YCustomSearchEngineTest-Prefix.pch";
+				INFOPLIST_FILE = "YCustomSearchEngineTest/YCustomSearchEngineTest-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		CED484A1160716C000DB72EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YCustomSearchEngineTest/YCustomSearchEngineTest-Prefix.pch";
+				INFOPLIST_FILE = "YCustomSearchEngineTest/YCustomSearchEngineTest-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CED484741607165200DB72EF /* Build configuration list for PBXProject "YCustomSearchEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED484851607165200DB72EF /* Debug */,
+				CED484861607165200DB72EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CED484871607165200DB72EF /* Build configuration list for PBXNativeTarget "YCustomSearchEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED484881607165200DB72EF /* Debug */,
+				CED484891607165200DB72EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CED4849F160716C000DB72EF /* Build configuration list for PBXNativeTarget "YCustomSearchEngineTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED484A0160716C000DB72EF /* Debug */,
+				CED484A1160716C000DB72EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CED484711607165200DB72EF /* Project object */;
+}
