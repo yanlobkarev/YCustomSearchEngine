@@ -19,6 +19,12 @@
 		CED484A1160716C000DB72F6 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = CED484A1160716C000DB72F5 /* Constants.h */; };
 		CED484A1160716C000DB72F8 /* SearchParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = CED484A1160716C000DB72F7 /* SearchParameters.h */; };
 		CED484B116073E8D00DB72EF /* libYCustomSearchEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CED4847A1607165200DB72EF /* libYCustomSearchEngine.a */; };
+		CED484B116073E8D00DB72F2 /* YSearchError.m in Sources */ = {isa = PBXBuildFile; fileRef = CED484B116073E8D00DB72F1 /* YSearchError.m */; };
+		CED484B116073E8D00DB72F4 /* YSearchError.h in Headers */ = {isa = PBXBuildFile; fileRef = CED484B116073E8D00DB72F3 /* YSearchError.h */; };
+		CED484B116073E8D00DB72F6 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CED484B116073E8D00DB72F5 /* JSONKit.h */; };
+		CED484B116073E8D00DB72F8 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CED484B116073E8D00DB72F7 /* JSONKit.m */; };
+		CED484B116073E8D00DB72FA /* YSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = CED484B116073E8D00DB72F9 /* YSearchResult.m */; };
+		CED484B116073E8D00DB72FC /* YSearchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CED484B116073E8D00DB72FB /* YSearchResult.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		CED484A1160716C000DB72F3 /* NSDictionary+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Helpers.h"; sourceTree = "<group>"; };
 		CED484A1160716C000DB72F5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		CED484A1160716C000DB72F7 /* SearchParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchParameters.h; sourceTree = "<group>"; };
+		CED484B116073E8D00DB72F1 /* YSearchError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSearchError.m; sourceTree = "<group>"; };
+		CED484B116073E8D00DB72F3 /* YSearchError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSearchError.h; sourceTree = "<group>"; };
+		CED484B116073E8D00DB72F5 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		CED484B116073E8D00DB72F7 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		CED484B116073E8D00DB72F9 /* YSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSearchResult.m; sourceTree = "<group>"; };
+		CED484B116073E8D00DB72FB /* YSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSearchResult.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +118,10 @@
 		CED4847F1607165200DB72EF /* YCustomSearchEngine */ = {
 			isa = PBXGroup;
 			children = (
+				CED484B116073E8D00DB72FB /* YSearchResult.h */,
+				CED484B116073E8D00DB72F9 /* YSearchResult.m */,
+				CED484B116073E8D00DB72F3 /* YSearchError.h */,
+				CED484B116073E8D00DB72F1 /* YSearchError.m */,
 				CED484A1160716C000DB72F7 /* SearchParameters.h */,
 				CED484A1160716C000DB72F5 /* Constants.h */,
 				CED484821607165200DB72EF /* YCustomSearchEngine.h */,
@@ -147,6 +163,8 @@
 		CED484A1160716C000DB72F0 /* helpers */ = {
 			isa = PBXGroup;
 			children = (
+				CED484B116073E8D00DB72F7 /* JSONKit.m */,
+				CED484B116073E8D00DB72F5 /* JSONKit.h */,
 				CED484A1160716C000DB72F3 /* NSDictionary+Helpers.h */,
 				CED484A1160716C000DB72F1 /* NSDictionary+Helpers.m */,
 			);
@@ -163,6 +181,9 @@
 				CED484A1160716C000DB72F4 /* NSDictionary+Helpers.h in Headers */,
 				CED484A1160716C000DB72F6 /* Constants.h in Headers */,
 				CED484A1160716C000DB72F8 /* SearchParameters.h in Headers */,
+				CED484B116073E8D00DB72F4 /* YSearchError.h in Headers */,
+				CED484B116073E8D00DB72F6 /* JSONKit.h in Headers */,
+				CED484B116073E8D00DB72FC /* YSearchResult.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +286,9 @@
 			files = (
 				CED484841607165200DB72EF /* YCustomSearchEngine.m in Sources */,
 				CED484A1160716C000DB72F2 /* NSDictionary+Helpers.m in Sources */,
+				CED484B116073E8D00DB72F2 /* YSearchError.m in Sources */,
+				CED484B116073E8D00DB72F8 /* JSONKit.m in Sources */,
+				CED484B116073E8D00DB72FA /* YSearchResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

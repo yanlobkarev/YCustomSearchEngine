@@ -1,7 +1,7 @@
 #import "SearchParameters.h"
 
 #define CX                  @"cx"
-#define API_KEY             @"api_key"
+#define API_KEY             @"key"
 #define QUERY               @"q"
 #define SEARCH_TYPE         @"searchType"
 #define IMAGE_SIZE          @"imgSize"

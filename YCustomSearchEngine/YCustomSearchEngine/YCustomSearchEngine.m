@@ -1,6 +1,8 @@
 #import "YCustomSearchEngine.h"
 #import "Constants.h"
 #import "NSDictionary+Helpers.h"
+#import "JSONKit.h"
+#import "YSearchResult.h"
 
 
 @implementation YCustomSearchEngine {
@@ -13,6 +15,7 @@
         BOOL delegateResponseType;
     } flags;
     NSMutableSet *connections;
+    NSMutableDictionary *data4Connection;
 }
 
 @synthesize delegate;
@@ -34,6 +37,7 @@
         flags.delegateSearchType = [delegate respondsToSelector:@selector(searchType4customSearchEngine:)];
 
         connections = [NSMutableSet new];
+        data4Connection = [NSMutableDictionary new];
     }
     return self;
 }
@@ -43,6 +47,7 @@
         [con cancel];
     }
     [connections release];
+    [data4Connection release];
     [super dealloc];
 }
 
@@ -53,7 +58,7 @@
 }
 
 - (NSDictionary *)_cseIdentityParams {
-    return [NSDictionary dictionaryWithObjectsAndKeys:cx, apiKey, CX, API_KEY, nil];
+    return [NSDictionary dictionaryWithObjectsAndKeys:cx, CX, apiKey, API_KEY, nil];
 }
 
 - (NSString *)_cseType:(YCSEType)type {
@@ -61,6 +66,13 @@
         case YCSETypeImage: return @"image";
         default:            return nil;
     }
+}
+
+- (YCSEType)_cseType4Str:(NSString *)typeString {
+    if ([typeString isEqualToString:@"image"]) {
+        return YCSETypeImage;
+    }
+    return YCSETypeRegular;
 }
 
 - (NSString *)_cseImageSize:(YCSEImageSize)size {
@@ -116,15 +128,23 @@
         }
     }
 
-    //  check with Reachability
+    //  todo: check with Reachability
 
     NSString *urlParams = [params urlEncodedString];
     NSString *url = [NSString stringWithFormat:@"%@?%@", [self _host], urlParams];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSLog(@"~ search url: %@ ~", url);
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.f];
 
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     [connections addObject:connection];
     [connection start];
+}
+
+- (void)cancel {
+    for (NSURLConnection *con in connections) {
+        [con cancel];
+    }
+    [connections removeAllObjects];
 }
 
 #pragma mark NSURLConnectionDelegate
@@ -136,11 +156,42 @@
 
 #pragma mark NSURLConnectionDataDelegate
 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+}
+
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"~ Response: %@ ~", responseString);
-    [responseString release];
-    //  todo: delegate
+    NSString *key = connection.description;
+    NSMutableData *dataChunks = [data4Connection objectForKey:key];
+    if (dataChunks == nil) {
+        dataChunks = [NSMutableData data];
+        [data4Connection setObject:dataChunks forKey:key];
+    }
+    [dataChunks appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    NSString *key = connection.description;
+    NSMutableData *dataChunks = [data4Connection objectForKey:key];
+    NSDictionary *response = [dataChunks objectFromJSONData];
+    [data4Connection removeObjectForKey:key];
+
+    YSearchError *error = [YSearchError errorWithData:[response valueForKey:@"error"]];
+    if (error) {
+        [delegate customSearchEngine:self didReceiveError:error];
+        return;
+    }
+
+    YCSEType searchType = [self _cseType4Str:[[response valueForKeyPath:@"queries.request.searchType"] lastObject]];
+
+    NSMutableArray *searchResults = [NSMutableArray array];
+    NSArray *items = [response valueForKey:@"items"];
+    for (NSDictionary *item in items) {
+        YSearchResult *result = [YSearchResult searchResultWithData:item searchType:searchType];
+        if (result) {
+            [searchResults addObject:result];
+        }
+    }
+    [delegate customSearchEngine:self didFindResultts:searchResults];
 }
 
 @end
