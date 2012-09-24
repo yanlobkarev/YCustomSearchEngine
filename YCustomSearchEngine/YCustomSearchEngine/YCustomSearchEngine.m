@@ -32,7 +32,7 @@
         apiKey = anApiKey;
         delegate = aDelegate;
 
-        flags.delegateFileType      = [delegate respondsToSelector:@selector(fileType4customSearchEngine:)];
+        flags.delegateFileType      = [delegate respondsToSelector:@selector(fileTypes4customSearchEngine:)];
         flags.delegateImageSize     = [delegate respondsToSelector:@selector(imageSize4customSearchEngine:)];
         flags.delegateResponseType  = [delegate respondsToSelector:@selector(responseType4customSearchEngine:)];
         flags.delegateSearchType    = [delegate respondsToSelector:@selector(searchType4customSearchEngine:)];
@@ -89,14 +89,6 @@
     }
 }
 
-- (NSArray *)_cseFileTypes:(YCSEFileType)type {
-    NSMutableArray *fileTypes = [NSMutableArray array];
-    if (type | PNG) [fileTypes addObject:@"png"];
-    if (type | JPG) [fileTypes addObject:@"jpg"];
-    if (type | BMP) [fileTypes addObject:@"bmp"];
-    return fileTypes;
-}
-
 - (NSString *)_cseResponseType:(YCSEResponseType)type {
     switch (type) {
         case YCSEResponseTypeJSON: return @"json";
@@ -131,6 +123,12 @@
         if (respType) {
             [params setValue:respType forKey:RESPONSE_TYPE];
         }
+    }
+
+    if (flags.delegateFileType) {
+        NSSet *fileTypes = [delegate fileTypes4customSearchEngine:self];
+        NSString *fileTypesStr = [fileTypes.allObjects componentsJoinedByString:@" "];
+        [params setValue:fileTypesStr forKey:FILE_TYPE];
     }
 
     //  todo: check with Reachability

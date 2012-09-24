@@ -23,6 +23,6 @@
 @optional
 - (YCSEType)searchType4customSearchEngine:(YCustomSearchEngine *)engine;
 - (YCSEImageSize)imageSize4customSearchEngine:(YCustomSearchEngine *)engine;
-- (YCSEFileType)fileType4customSearchEngine:(YCustomSearchEngine *)engine;
 - (YCSEResponseType)responseType4customSearchEngine:(YCustomSearchEngine *)engine;
+- (NSSet *)fileTypes4customSearchEngine:(YCustomSearchEngine *)engine;          //  should be returned a set of file extensions (like "png", "jpg", "pdf")
 @end

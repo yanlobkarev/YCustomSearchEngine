@@ -8,3 +8,4 @@
 #define RESPONSE_TYPE       @"alt"
 #define TOTAL_RESULTS       @"totalResults"
 #define START_INDEX         @"start"
+#define FILE_TYPE           @"fileType"

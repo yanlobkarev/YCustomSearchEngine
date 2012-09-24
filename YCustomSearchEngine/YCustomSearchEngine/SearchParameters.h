@@ -14,12 +14,7 @@ typedef enum {
 } YCSEImageSize;
 
 typedef enum {
-    PNG,
-    JPG,
-    BMP
-} YCSEFileType;
-
-typedef enum {
     YCSEResponseTypeJSON = 0
 //    ,YCSEResponseTypeAtom  // ...not Supported yet
 } YCSEResponseType;
+
