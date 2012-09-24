@@ -25,6 +25,8 @@
 		CED484B116073E8D00DB72F8 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CED484B116073E8D00DB72F7 /* JSONKit.m */; };
 		CED484B116073E8D00DB72FA /* YSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = CED484B116073E8D00DB72F9 /* YSearchResult.m */; };
 		CED484B116073E8D00DB72FC /* YSearchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CED484B116073E8D00DB72FB /* YSearchResult.h */; };
+		CED484B116073E8D00DB72FE /* YSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CED484B116073E8D00DB72FD /* YSearchRequest.m */; };
+		CED484B116073E8D00DB7300 /* YSearchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CED484B116073E8D00DB72FF /* YSearchRequest.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		CED484B116073E8D00DB72F7 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		CED484B116073E8D00DB72F9 /* YSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSearchResult.m; sourceTree = "<group>"; };
 		CED484B116073E8D00DB72FB /* YSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSearchResult.h; sourceTree = "<group>"; };
+		CED484B116073E8D00DB72FD /* YSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSearchRequest.m; sourceTree = "<group>"; };
+		CED484B116073E8D00DB72FF /* YSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSearchRequest.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,16 +122,13 @@
 		CED4847F1607165200DB72EF /* YCustomSearchEngine */ = {
 			isa = PBXGroup;
 			children = (
-				CED484B116073E8D00DB72FB /* YSearchResult.h */,
-				CED484B116073E8D00DB72F9 /* YSearchResult.m */,
-				CED484B116073E8D00DB72F3 /* YSearchError.h */,
-				CED484B116073E8D00DB72F1 /* YSearchError.m */,
 				CED484A1160716C000DB72F7 /* SearchParameters.h */,
 				CED484A1160716C000DB72F5 /* Constants.h */,
 				CED484821607165200DB72EF /* YCustomSearchEngine.h */,
 				CED484831607165200DB72EF /* YCustomSearchEngine.m */,
 				CED484801607165200DB72EF /* Supporting Files */,
 				CED484A1160716C000DB72F0 /* helpers */,
+				CED484B116073E8D00DB7301 /* model */,
 			);
 			path = YCustomSearchEngine;
 			sourceTree = "<group>";
@@ -171,6 +172,19 @@
 			path = helpers;
 			sourceTree = "<group>";
 		};
+		CED484B116073E8D00DB7301 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				CED484B116073E8D00DB72F9 /* YSearchResult.m */,
+				CED484B116073E8D00DB72FB /* YSearchResult.h */,
+				CED484B116073E8D00DB72FD /* YSearchRequest.m */,
+				CED484B116073E8D00DB72FF /* YSearchRequest.h */,
+				CED484B116073E8D00DB72F1 /* YSearchError.m */,
+				CED484B116073E8D00DB72F3 /* YSearchError.h */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -184,6 +198,7 @@
 				CED484B116073E8D00DB72F4 /* YSearchError.h in Headers */,
 				CED484B116073E8D00DB72F6 /* JSONKit.h in Headers */,
 				CED484B116073E8D00DB72FC /* YSearchResult.h in Headers */,
+				CED484B116073E8D00DB7300 /* YSearchRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +304,7 @@
 				CED484B116073E8D00DB72F2 /* YSearchError.m in Sources */,
 				CED484B116073E8D00DB72F8 /* JSONKit.m in Sources */,
 				CED484B116073E8D00DB72FA /* YSearchResult.m in Sources */,
+				CED484B116073E8D00DB72FE /* YSearchRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,19 +4,21 @@
 
 
 @protocol YCustomSearchEngineDelegate;
+@class YSearchRequest;
 
 
 @interface YCustomSearchEngine : NSObject<NSURLConnectionDelegate>
 
 @property (nonatomic, readonly) NSObject<YCustomSearchEngineDelegate> *delegate;
 - (id)initWithCX:(NSString *)aCx apiKey:(NSString *)anApiKey andDelegate:(NSObject<YCustomSearchEngineDelegate> *) aDelegate;
+- (void)search:(NSString *)searchStr startingAt:(NSUInteger)start;
 - (void)search:(NSString *)searchStr;
 - (void)cancel;
 @end
 
 
 @protocol YCustomSearchEngineDelegate
-- (void)customSearchEngine:(YCustomSearchEngine *)engine didFindResultts:(NSArray *)results;
+- (void)customSearchEngine:(YCustomSearchEngine *)engine didFindResultts:(NSArray *)results forRequest:(YSearchRequest *)searchRequest;
 - (void)customSearchEngine:(YCustomSearchEngine *)engine didReceiveError:(YSearchError *)results;
 @optional
 - (YCSEType)searchType4customSearchEngine:(YCustomSearchEngine *)engine;

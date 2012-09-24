@@ -3,6 +3,7 @@
 #import "NSDictionary+Helpers.h"
 #import "JSONKit.h"
 #import "YSearchResult.h"
+#import "YSearchRequest.h"
 
 
 @implementation YCustomSearchEngine {
@@ -31,10 +32,10 @@
         apiKey = anApiKey;
         delegate = aDelegate;
 
-        flags.delegateFileType = [delegate respondsToSelector:@selector(fileType4customSearchEngine:)];
-        flags.delegateImageSize = [delegate respondsToSelector:@selector(imageSize4customSearchEngine:)];
-        flags.delegateResponseType = [delegate respondsToSelector:@selector(responseType4customSearchEngine:)];
-        flags.delegateSearchType = [delegate respondsToSelector:@selector(searchType4customSearchEngine:)];
+        flags.delegateFileType      = [delegate respondsToSelector:@selector(fileType4customSearchEngine:)];
+        flags.delegateImageSize     = [delegate respondsToSelector:@selector(imageSize4customSearchEngine:)];
+        flags.delegateResponseType  = [delegate respondsToSelector:@selector(responseType4customSearchEngine:)];
+        flags.delegateSearchType    = [delegate respondsToSelector:@selector(searchType4customSearchEngine:)];
 
         connections = [NSMutableSet new];
         data4Connection = [NSMutableDictionary new];
@@ -105,9 +106,13 @@
 
 #pragma mark Public
 
-- (void)search:(NSString *)searchStr {
+- (void)search:(NSString *)searchStr startingAt:(NSUInteger)start {
     NSMutableDictionary *params = [self _cseIdentityParams].mutableCopy;
     [params setValue:searchStr forKey:QUERY];
+
+    if ( start != 0 ) {     //  causes `Invalid Value`-error
+        [params setValue:[NSNumber numberWithUnsignedInteger:start] forKey:START_INDEX];
+    }
 
     if (flags.delegateSearchType) {
         NSString *searchType = [self _cseType:[delegate searchType4customSearchEngine:self]];
@@ -138,6 +143,10 @@
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     [connections addObject:connection];
     [connection start];
+}
+
+- (void)search:(NSString *)searchStr {
+    [self search:searchStr startingAt:0];
 }
 
 - (void)cancel {
@@ -181,17 +190,20 @@
         return;
     }
 
-    YCSEType searchType = [self _cseType4Str:[[response valueForKeyPath:@"queries.request.searchType"] lastObject]];
+
+    NSArray *arr = [response valueForKeyPath:@"queries.request"];
+    NSDictionary *requestData = arr.lastObject;
+    YSearchRequest *request = [YSearchRequest searchRequestWithData:requestData];
 
     NSMutableArray *searchResults = [NSMutableArray array];
     NSArray *items = [response valueForKey:@"items"];
     for (NSDictionary *item in items) {
-        YSearchResult *result = [YSearchResult searchResultWithData:item searchType:searchType];
+        YSearchResult *result = [YSearchResult searchResultWithData:item searchRequest:request];
         if (result) {
             [searchResults addObject:result];
         }
     }
-    [delegate customSearchEngine:self didFindResultts:searchResults];
+    [delegate customSearchEngine:self didFindResultts:searchResults forRequest:request];
 }
 
 @end

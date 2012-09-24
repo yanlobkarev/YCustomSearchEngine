@@ -1,4 +1,5 @@
 #import "YSearchResult.h"
+#import "YSearchRequest.h"
 
 
 @implementation YSearchResult
@@ -9,13 +10,13 @@
 @synthesize htmlTitle;
 @synthesize pageMap;
 @synthesize image;
-@synthesize searchType;
+@synthesize searchRequest;
 
-+ (id)searchResultWithData:(NSDictionary *)data searchType:(YCSEType)aSearchType {
-    return [[[YSearchResult alloc] initWithData:data searchType:aSearchType] autorelease];
++ (id)searchResultWithData:(NSDictionary *)data searchRequest:(YSearchRequest *)searchRequest {
+    return [[[YSearchResult alloc] initWithData:data searchRequest:searchRequest] autorelease];
 }
 
-- (id)initWithData:(NSDictionary *)data searchType:(YCSEType)type {
+- (id)initWithData:(NSDictionary *)data searchRequest:(YSearchRequest *)aSearchRequest {
     if (data == nil) {
         return nil;
     }
@@ -33,7 +34,7 @@
         NSDictionary *imageData = [data valueForKey:@"image"];
         image = [[YImage alloc] initWithData:imageData];
 
-        searchType = type;
+        searchRequest = [aSearchRequest retain];
     }
     return self;
 }
@@ -46,6 +47,7 @@
     [htmlTitle release];
     [pageMap release];
     [image release];
+    [searchRequest release];
     [super dealloc];
 }
 

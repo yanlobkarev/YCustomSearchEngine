@@ -1,9 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "Constants.h"
+#import "YSearchRequest.h"
 
 
 @class YPageMap;
 @class YImage;
+
 
 
 @interface YSearchResult : NSObject
@@ -12,11 +14,10 @@
 @property (nonatomic, readonly) NSString *title;
 @property (nonatomic, readonly) NSString *displayLink;
 @property (nonatomic, readonly) NSString *htmlTitle;
-@property (nonatomic, readonly) YCSEType searchType;
 @property (nonatomic, readonly) YPageMap *pageMap;
+@property (nonatomic, readonly) YSearchRequest *searchRequest;
 @property (nonatomic, readonly) YImage   *image;
-
-+ (id)searchResultWithData:(NSDictionary *)data searchType:(YCSEType)aSearchType;
++ (id)searchResultWithData:(NSDictionary *)data searchRequest:(YSearchRequest *)searchRequest;
 @end
 
 
