@@ -135,7 +135,6 @@
 
     NSString *urlParams = [params urlEncodedString];
     NSString *url = [NSString stringWithFormat:@"%@?%@", [self _host], urlParams];
-    NSLog(@"~ search url: %@ ~", url);
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.f];
 
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
