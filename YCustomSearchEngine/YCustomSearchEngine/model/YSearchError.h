@@ -6,4 +6,5 @@
 @property (nonatomic, readonly) NSUInteger code;
 + (id)errorWithData:(NSDictionary *)data;
 + (id)errorWithMessage:(NSString *)message;
++ (id)errorWithError:(NSError *)error;
 @end

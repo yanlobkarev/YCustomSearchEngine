@@ -27,6 +27,16 @@
     return error;
 }
 
++ (id)errorWithError:(NSError *)error_ {
+    if (error_ == nil) {
+        return nil;
+    }
+    YSearchError *error = [[YSearchError new] autorelease];
+    error->code = (NSUInteger) error_.code;
+    error->message = [[error_ localizedDescription] retain];
+    return error;
+}
+
 - (void)dealloc {
     [message release];
     [super dealloc];

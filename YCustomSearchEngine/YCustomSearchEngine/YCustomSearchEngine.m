@@ -166,8 +166,7 @@ NSString *const YCustomSearchEngineErrorDomain = @"YCustomSearchEngineErrorDomai
 #pragma mark NSURLConnectionDelegate
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"~ connection:didFailWithError: %@ ~", error);
-    //  todo: delegate
+    [delegate customSearchEngine:self didReceiveError:[YSearchError errorWithError:error]];
 }
 
 #pragma mark NSURLConnectionDataDelegate
