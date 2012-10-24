@@ -4,6 +4,10 @@
 #import "JSONKit.h"
 #import "YSearchResult.h"
 #import "YSearchRequest.h"
+#import "Reachability_.h"
+
+
+NSString *const YCustomSearchEngineErrorDomain = @"YCustomSearchEngineErrorDomain";
 
 
 @implementation YCustomSearchEngine {
@@ -99,7 +103,7 @@
 #pragma mark Public
 
 - (void)search:(NSString *)searchStr startingAt:(NSUInteger)start {
-    NSMutableDictionary *params = [self _cseIdentityParams].mutableCopy;
+    NSMutableDictionary *params = [[self _cseIdentityParams].mutableCopy autorelease];
     [params setValue:searchStr forKey:QUERY];
 
     if ( start != 0 ) {     //  causes `Invalid Value`-error
@@ -131,7 +135,13 @@
         [params setValue:fileTypesStr forKey:FILE_TYPE];
     }
 
-    //  todo: check with Reachability
+
+    Reachability_ *reachability = [Reachability_ reachabilityForInternetConnection];
+    if ([reachability currentReachabilityStatus] == NotReachable) {
+        YSearchError *error = [YSearchError errorWithMessage:@"Network is not Reachable."];
+        [delegate customSearchEngine:self didReceiveError:error];
+        return;
+    }
 
     NSString *urlParams = [params urlEncodedString];
     NSString *url = [NSString stringWithFormat:@"%@?%@", [self _host], urlParams];

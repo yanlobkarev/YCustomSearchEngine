@@ -27,6 +27,8 @@
 		CED484B116073E8D00DB72FC /* YSearchResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CED484B116073E8D00DB72FB /* YSearchResult.h */; };
 		CED484B116073E8D00DB72FE /* YSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CED484B116073E8D00DB72FD /* YSearchRequest.m */; };
 		CED484B116073E8D00DB7300 /* YSearchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CED484B116073E8D00DB72FF /* YSearchRequest.h */; };
+		CEE84C80163809C20024A44B /* Reachability_.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE84C7F163809C20024A44B /* Reachability_.h */; };
+		CEE84C9616381EF40024A44B /* Reachability_.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE84C82163809CE0024A44B /* Reachability_.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		CED484B116073E8D00DB72FB /* YSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSearchResult.h; sourceTree = "<group>"; };
 		CED484B116073E8D00DB72FD /* YSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSearchRequest.m; sourceTree = "<group>"; };
 		CED484B116073E8D00DB72FF /* YSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSearchRequest.h; sourceTree = "<group>"; };
+		CEE84C7F163809C20024A44B /* Reachability_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability_.h; sourceTree = "<group>"; };
+		CEE84C82163809CE0024A44B /* Reachability_.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability_.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,8 @@
 		CED484A1160716C000DB72F0 /* helpers */ = {
 			isa = PBXGroup;
 			children = (
+				CEE84C82163809CE0024A44B /* Reachability_.m */,
+				CEE84C7F163809C20024A44B /* Reachability_.h */,
 				CED484B116073E8D00DB72F7 /* JSONKit.m */,
 				CED484B116073E8D00DB72F5 /* JSONKit.h */,
 				CED484A1160716C000DB72F3 /* NSDictionary+Helpers.h */,
@@ -199,6 +205,7 @@
 				CED484B116073E8D00DB72F6 /* JSONKit.h in Headers */,
 				CED484B116073E8D00DB72FC /* YSearchResult.h in Headers */,
 				CED484B116073E8D00DB7300 /* YSearchRequest.h in Headers */,
+				CEE84C80163809C20024A44B /* Reachability_.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE84C9616381EF40024A44B /* Reachability_.m in Sources */,
 				CED484841607165200DB72EF /* YCustomSearchEngine.m in Sources */,
 				CED484A1160716C000DB72F2 /* NSDictionary+Helpers.m in Sources */,
 				CED484B116073E8D00DB72F2 /* YSearchError.m in Sources */,

@@ -18,6 +18,15 @@
     return error;
 }
 
++ (id)errorWithMessage:(NSString *)message {
+    if (message == nil) {
+        return nil;
+    }
+    YSearchError *error = [[YSearchError new] autorelease];
+    error->message = [message retain];
+    return error;
+}
+
 - (void)dealloc {
     [message release];
     [super dealloc];

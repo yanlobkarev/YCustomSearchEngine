@@ -3,6 +3,9 @@
 #import "YSearchError.h"
 
 
+extern NSString *const YCustomSearchEngineErrorDomain;
+
+
 @protocol YCustomSearchEngineDelegate;
 @class YSearchRequest;
 
