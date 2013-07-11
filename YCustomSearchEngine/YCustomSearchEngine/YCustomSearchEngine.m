@@ -48,9 +48,7 @@ NSString *const YCustomSearchEngineErrorDomain = @"YCustomSearchEngineErrorDomai
 }
 
 - (void)dealloc {
-    for (NSURLConnection *con in connections) {
-        [con cancel];
-    }
+    [self cancel];
     [connections release];
     [data4Connection release];
     [super dealloc];
@@ -101,6 +99,10 @@ NSString *const YCustomSearchEngineErrorDomain = @"YCustomSearchEngineErrorDomai
 }
 
 #pragma mark Public
+
+- (BOOL)busy {
+    return connections.count != 0;
+}
 
 - (void)search:(NSString *)searchStr startingAt:(NSUInteger)start {
     NSMutableDictionary *params = [[self _cseIdentityParams].mutableCopy autorelease];
@@ -157,9 +159,7 @@ NSString *const YCustomSearchEngineErrorDomain = @"YCustomSearchEngineErrorDomai
 }
 
 - (void)cancel {
-    for (NSURLConnection *con in connections) {
-        [con cancel];
-    }
+    [connections makeObjectsPerformSelector:@selector(cancel)];
     [connections removeAllObjects];
 }
 
@@ -167,9 +167,16 @@ NSString *const YCustomSearchEngineErrorDomain = @"YCustomSearchEngineErrorDomai
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     [delegate customSearchEngine:self didReceiveError:[YSearchError errorWithError:error]];
+    [self _removeConnection:connection];
 }
 
 #pragma mark NSURLConnectionDataDelegate
+
+- (void)_removeConnection:(NSURLConnection *)connection {
+    [[connection retain] autorelease];
+    [data4Connection removeObjectForKey:connection.description];
+    [connections removeObject:connection];
+}
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
 }
@@ -188,7 +195,7 @@ NSString *const YCustomSearchEngineErrorDomain = @"YCustomSearchEngineErrorDomai
     NSString *key = connection.description;
     NSMutableData *dataChunks = [data4Connection objectForKey:key];
     NSDictionary *response = [dataChunks objectFromJSONData];
-    [data4Connection removeObjectForKey:key];
+    [self _removeConnection:connection];
 
     YSearchError *error = [YSearchError errorWithData:[response valueForKey:@"error"]];
     if (error) {

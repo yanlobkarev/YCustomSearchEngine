@@ -13,6 +13,7 @@ extern NSString *const YCustomSearchEngineErrorDomain;
 @interface YCustomSearchEngine : NSObject<NSURLConnectionDelegate>
 
 @property (nonatomic, readonly) NSObject<YCustomSearchEngineDelegate> *delegate;
+@property (nonatomic, readonly) BOOL busy;
 - (id)initWithCX:(NSString *)aCx apiKey:(NSString *)anApiKey andDelegate:(NSObject<YCustomSearchEngineDelegate> *) aDelegate;
 - (void)search:(NSString *)searchStr startingAt:(NSUInteger)start;
 - (void)search:(NSString *)searchStr;
